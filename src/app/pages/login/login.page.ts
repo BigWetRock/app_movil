@@ -40,6 +40,9 @@ export class LoginPage implements OnInit {
     }
   }
 
+  onRegistrar(){
 
+    this.router.navigateByUrl('registro');
+  }
 
 }
