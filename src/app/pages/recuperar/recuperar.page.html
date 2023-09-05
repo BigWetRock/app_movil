@@ -10,7 +10,28 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">recuperar</ion-title>
+      <ion-title size="large">Restablecer Cuenta</ion-title>
     </ion-toolbar>
   </ion-header>
 </ion-content>
+
+<ion-card-header>
+  <ion-card-title>Restablecer Email/Contraseña</ion-card-title>
+</ion-card-header>
+  <ion-card class="flex-center">
+
+    <ion-card-content>
+      <ion-item>
+        <ion-input [(ngModel)]="recEmail" label="Recuperar Email"  type="recEmail" labelPlacement="floating" placeholder=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input [(ngModel)]="recContrasena" label="Recuperar Contraseña"  type="recPassword" labelPlacement="floating" placeholder=""></ion-input>
+      </ion-item>
+
+      <ion-button color="danger" size="full" (click)="onRecuperar()" shape="round">Recuperar Email/Contraseña</ion-button>
+      
+
+    </ion-card-content>
+
+  </ion-card>
