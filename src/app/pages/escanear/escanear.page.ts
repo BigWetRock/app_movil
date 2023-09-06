@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HelperService } from 'src/app/services/helper.service';
 
 @Component({
   selector: 'app-escanear',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EscanearPage implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router,private helper:HelperService) { }
 
   ngOnInit() {
+  }
+
+  onVisualizar(){
+    this.router.navigateByUrl('visualizar');
   }
 
 }

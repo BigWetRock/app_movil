@@ -17,7 +17,7 @@ export class RecuperarPage implements OnInit {
   }
 
   onRecuperar() {
-    this.router.navigateByUrl('recuperar');
+    this.router.navigateByUrl('login');
   }
 
 
