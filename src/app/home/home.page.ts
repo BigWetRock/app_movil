@@ -27,9 +27,8 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.cargarMenu();
-    setTimeout(() => {this.loading = false;}, 2000);
-
-}
+    setTimeout(() => {this.loading = false;}, 0); // 2000
+  }
 
   cargarMenu(){
     this.menuArray.push(
@@ -49,18 +48,19 @@ export class HomePage implements OnInit {
     )
 }
 
-  ngAfterViewInit() {
-    {
-      this.animation = this.animationCtrl
-        .create()
-        .addElement(document.querySelectorAll("ion-button"))
-        .duration(1500)
-        .iterations(Infinity)
-        .direction('alternate')
-        .fromTo('background', 'blue', 'var(--background)');
-    }
-    
-}
+  ionViewDidEnter(){
+    this.animation = this.animationCtrl.create()
+    .addElement( document.querySelectorAll(".__card") ) //document.querySelectorAll("ion-button") 
+    .duration(1500)
+    .iterations(Infinity)
+    .direction('alternate')
+    .fromTo('background', 'blue', 'var(--background)');
+    this.animation.play();
+  }
+
+  ionViewDidLeave(){
+    this.animation.stop();
+  }
 
   async logout(){
     
@@ -71,11 +71,12 @@ export class HomePage implements OnInit {
   }
   
 
-  playAnimation() {
-    this.animation.play();
-  }
+  // playAnimation() {
+  //   this.animation.play();
+  //   console.log(this.animation);
+  // }
 
-  stopAnimation() {
-    this.animation.stop();
-  }
+  // stopAnimation() {
+  //   this.animation.stop();
+  // }
 }

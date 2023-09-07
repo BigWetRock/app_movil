@@ -31,3 +31,17 @@
     align-items: center;
     height: 100%;
   }
+
+.img {
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.title{
+  display: flex;
+  text-align: center !important;
+  justify-content: center;
+}
