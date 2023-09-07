@@ -4,3 +4,4 @@ export interface Menu {
     url: string;
     icono: string;
 }
+

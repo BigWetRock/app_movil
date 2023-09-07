@@ -8,30 +8,34 @@
     </ion-toolbar>
   </ion-header>
 
+
   <ion-content [fullscreen]="true">
+    <div class="flex-center">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Informacion de Contacto</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-input label="Email"  type="email" labelPlacement="floating" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Confirmar Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Numero celular"  type="tel" labelPlacement="floating" placeholder=""></ion-input>
+          </ion-item>
+        
+        </ion-card-content>
+        <ion-button size="full" color="danger">
+          Registrar
+        </ion-button>
+      </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Informacion de Contacto</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-input label="Email"  type="email" labelPlacement="floating" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Confirmar Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input label="Numero celular"  type="tel" labelPlacement="floating" placeholder=""></ion-input>
-      </ion-item>
-      
-    </ion-card-content>
-    <ion-button size="full" color="danger">
-      Registrar
-    </ion-button>
-  </ion-card>
-
+    </div>
+    
+    
 </ion-content>

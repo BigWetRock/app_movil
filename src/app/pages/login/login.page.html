@@ -1,9 +1,5 @@
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
 
 
   <div class="flex-center">
@@ -22,9 +18,9 @@
           <ion-input [(ngModel)]="Contrasena" label="contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
         </ion-item>
 
-        <ion-button color ="dark" size="full" (click)="onRecuperar()">se me olvido email/password</ion-button>
+        <ion-button color ="dark" size="full" (click)="onRecuperar()" shape="round">se me olvido email/password</ion-button>
         <ion-button color="danger" size="full" (click)="onLogin()" shape="round">Login</ion-button>
-        <ion-button color="dark" size="full" fill="clear" (click)="onRegistrar()">Registrar</ion-button>
+        <ion-button color="dark" size="full" fill="clear" (click)="onRegistrar()" shape="round">Registrar</ion-button>
 
       </ion-card-content>
 

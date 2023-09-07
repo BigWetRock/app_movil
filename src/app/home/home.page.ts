@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Menu } from '../models/menu';
 import { Router } from '@angular/router';
-import { AnimationController } from '@ionic/angular';
+import { AnimationController, IonCard } from '@ionic/angular';
 import { HelperService } from '../services/helper.service';
 import type { Animation } from '@ionic/angular';
 
@@ -10,7 +10,8 @@ import type { Animation } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+  @ViewChild(IonCard, { read: ElementRef }) card!: ElementRef<HTMLIonCardElement>;
 
   private animation!: Animation;
 
@@ -27,6 +28,7 @@ export class HomePage {
   ngOnInit() {
     this.cargarMenu();
     setTimeout(() => {this.loading = false;}, 2000);
+
 }
 
   cargarMenu(){
@@ -48,13 +50,16 @@ export class HomePage {
 }
 
   ngAfterViewInit() {
-    this.animation = this.animationCtrl
-      .create()
-      .addElement(document.querySelectorAll("ion-card"))
-      .duration(1500)
-      .iterations(Infinity)
-      .fromTo('transform', 'translateX(0px)', 'translateX(100px)')
-      .fromTo('opacity', '1', '0.2');
+    {
+      this.animation = this.animationCtrl
+        .create()
+        .addElement(document.querySelectorAll("ion-button"))
+        .duration(1500)
+        .iterations(Infinity)
+        .direction('alternate')
+        .fromTo('background', 'blue', 'var(--background)');
+    }
+    
 }
 
   async logout(){
@@ -66,4 +71,11 @@ export class HomePage {
   }
   
 
+  playAnimation() {
+    this.animation.play();
+  }
+
+  stopAnimation() {
+    this.animation.stop();
+  }
 }

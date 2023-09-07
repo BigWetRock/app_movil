@@ -17,15 +17,19 @@
   </ion-header>
 
   <ng-container *ngIf="!loading">
-    <ion-card *ngFor="let m of menuArray">
-
+    <ion-card #card *ngFor="let m of menuArray">
+      <ion-card-content>
       
         <div [routerLink]="m.url">
           <ion-icon [name]="m.icono"></ion-icon>
           <h2>{{m.nombre}}</h2>
         </div>
       
-
+      </ion-card-content>
     </ion-card>  
   </ng-container>
+
+    <ion-button (click)="playAnimation()">Play</ion-button>
+    <ion-button (click)="stopAnimation()">Stop</ion-button>
+
 </ion-content>

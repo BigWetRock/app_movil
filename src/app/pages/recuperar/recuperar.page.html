@@ -1,24 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>recuperar</ion-title>
+    <ion-title>Restablecer</ion-title>
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-card-header>
-  <ion-card-title>Restablecer Email/Contraseña</ion-card-title>
-</ion-card-header>
-  <ion-card class="flex-center">
-
+<ion-content>
+ 
+ <div class="flex-center"> 
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Restablecer Email Contraseña</ion-card-title>
+    </ion-card-header>
+    
     <ion-card-content>
       <ion-item>
-        <ion-input [(ngModel)]="recEmail" label="Recuperar Email"  type="recEmail" labelPlacement="floating" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="recEmail" label="Recuperar Email"  type="Email" labelPlacement="floating" placeholder=""></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input [(ngModel)]="recContrasena" label="Recuperar Contraseña"  type="recPassword" labelPlacement="floating" placeholder=""></ion-input>
+        <ion-input [(ngModel)]="recContrasena" label="Recuperar Contraseña"  type="Password" labelPlacement="floating" placeholder=""></ion-input>
       </ion-item>
 
       <ion-button color="danger" size="full" (click)="onRecuperar()" shape="round">Recuperar Email/Contraseña</ion-button>
@@ -27,3 +30,5 @@
     </ion-card-content>
 
   </ion-card>
+  </div>
+</ion-content>

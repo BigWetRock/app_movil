@@ -14,8 +14,6 @@ export class EscanearPage implements OnInit {
   ngOnInit() {
   }
 
-  onVisualizar(){
-    this.router.navigateByUrl('visualizar');
-  }
+  
 
 }

@@ -1,16 +1,28 @@
-<ion-header [translucent]="true">
+<ion-header collapse="condense">
   <ion-toolbar>
-    <ion-title>visualizar</ion-title>
+    <ion-title>Visualizar</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button>s</ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Visualizar</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  
+  <ng-container *ngIf="!loading">
+    <ion-card *ngFor="let m of menuVisualizar">
+      <div>
+        <h2>{{m.nombre}}</h2>
+        <h2>{{m.asignatura}}</h2>
+        <h2>{{m.fecha}}</h2>
+        <h2>{{m.hora}}</h2>
+        <h2>{{m.profesor}}</h2>
+        <h2>{{m.sala}}</h2>
+
+
+      </div>
+    </ion-card>
+  </ng-container>
+
+
 </ion-content>

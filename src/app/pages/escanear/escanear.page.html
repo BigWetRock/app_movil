@@ -21,10 +21,62 @@
       <ion-card-header>
       <ion-card-title>Escanear Codigo QR</ion-card-title>
       </ion-card-header>
-      <ion-button color="danger" size="full" (click)="onVisualizar()" shape="round">Visualizar</ion-button>
+      <ion-button id="captura" expand="block" color="danger" size="full"  shape="round">Captura</ion-button>
     </ion-card>
   </div>
 
+  <ion-modal #modal trigger="captura">
+    <ng-template>
+      <ion-content>
+        <ion-toolbar>
+          <ion-title>Prevista</ion-title>
+          <ion-buttons slot="end">
+            <ion-button color="danger" (click)="modal.dismiss()">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-content>
+        <ion-card >
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label>Asistencia</ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Asignatura</ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Seccion</ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Profesor</ion-label>
+              </ion-item>
+
+              <ion-item>
+                <ion-label>Fecha</ion-label>
+              </ion-item>
+
+              
+              <ion-item>
+                <ion-label>Hora</ion-label>
+              </ion-item>
+
+            </ion-list>
+
+          </ion-card-content>
+
+
+        </ion-card>
+
+        
+
+
+
+    </ng-template>
+
+  </ion-modal>
 
 
 </ion-content>
