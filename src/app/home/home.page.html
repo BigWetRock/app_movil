@@ -10,9 +10,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<div class="header">
+  <ion-header>
+    <ion-label>
+      Bienvenido (Nombre Apellido)
+    </ion-label>
+
+  </ion-header>
+</div>
   
 
   <ng-container *ngIf="!loading">
+
+    <div class="menu">
     <ion-card  *ngFor="let m of menuArray" class="__card">
       <ion-card-content>
       
@@ -23,6 +33,7 @@
       
       </ion-card-content>
     </ion-card>  
+    </div>
   </ng-container>
 
 
