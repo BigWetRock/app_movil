@@ -1,5 +1,5 @@
 
-  <ion-header collapse="condense">
+  <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
           <ion-back-button></ion-back-button>
@@ -16,10 +16,10 @@
         </ion-card-header>
         <ion-card-content>
           <ion-item>
-            <ion-input label="Email"  type="email" labelPlacement="floating" placeholder=""></ion-input>
+            <ion-input label="Email" [(ngModel)]="Email"   type="email" labelPlacement="floating" placeholder=""></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input label="Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
+            <ion-input label="Contraseña"  [(ngModel)]="Contrasena" type="password" labelPlacement="floating" placeholder=""></ion-input>
           </ion-item>
           <ion-item>
             <ion-input label="Confirmar Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
@@ -29,7 +29,7 @@
           </ion-item>
         
         </ion-card-content>
-        <ion-button size="full" color="primary">
+        <ion-button (click)="registro()" size="full" color="primary">
           Registrar
         </ion-button>
       </ion-card>

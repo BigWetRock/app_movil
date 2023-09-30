@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { HelperService } from 'src/app/services/helper.service';
 
@@ -12,13 +13,13 @@ export class LoginPage implements OnInit {
   Email: string="";
   Contrasena: string="";
 
-  constructor(private router:Router,private helper:HelperService) { }
+  constructor(private router:Router,private helper:HelperService, private auth:AngularFireAuth) { }
 
   ngOnInit() {
 
   }
 
-  onLogin(){ 
+  async onLogin(){ 
     console.log("Usuario",this.Email);
     console.log("Contraseña",this.Contrasena);
 
@@ -32,11 +33,12 @@ export class LoginPage implements OnInit {
       return;
     }
 
-    if (this.Email == "pgy4121001d" && this.Contrasena == "pgy4121001d") {
+    try {
+      await this.auth.signInWithEmailAndPassword(this.Email,this.Contrasena);
       //alert("Login correcto");
       this.router.navigateByUrl('home');
-    }else{
-      alert("Usuario o contraseña incorrecta.")
+    }catch(error:any){
+      alert(error.code)
     }
   }
 
