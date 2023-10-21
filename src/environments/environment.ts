@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  production: false,
   firebase: {
     projectId: 'pgy4121-001d-joh',
     appId: '1:328477846024:web:f9bdf641d4a6387c2cffbd',
@@ -11,7 +12,7 @@ export const environment = {
     authDomain: 'pgy4121-001d-joh.firebaseapp.com',
     messagingSenderId: '328477846024',
   },
-  production: false
+  apiUrl:"https://dev.matiivilla.cl/duoc/location/"
 };
 
 /*

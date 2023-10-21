@@ -24,11 +24,11 @@
       <ion-card-header>
       <ion-card-title>Escanear Codigo QR</ion-card-title>
       </ion-card-header>
-      <ion-button id="captura" expand="block" color="danger" size="full"  shape="round">Captura</ion-button>
+      <ion-button (click)="Scan()" id="captura" expand="block" color="danger" size="full"  shape="round">Captura</ion-button>
     </ion-card>
   </div>
 
-  <ion-modal #modal trigger="captura">
+  <!-- <ion-modal #modal >
     <ng-template>
       <ion-content>
         <ion-toolbar>
@@ -38,32 +38,32 @@
           </ion-buttons>
         </ion-toolbar>
       </ion-content>
-        <ion-card >
+        <ion-card *ngFor="let i of asistencia">
           <ion-card-content>
             <ion-list>
               <ion-item>
-                <ion-label>Asistencia</ion-label>
+                <ion-label>{{i.correo}}</ion-label>
               </ion-item>
 
               <ion-item>
-                <ion-label>Asignatura</ion-label>
+                <ion-label>{{i.asignatura}}</ion-label>
               </ion-item>
 
               <ion-item>
-                <ion-label>Seccion</ion-label>
+                <ion-label>{{i.docente}}</ion-label>
               </ion-item>
 
               <ion-item>
-                <ion-label>Profesor</ion-label>
+                <ion-label>{{i.fecha}}</ion-label>
               </ion-item>
 
               <ion-item>
-                <ion-label>Fecha</ion-label>
+                <ion-label>{{i.hora}}</ion-label>
               </ion-item>
 
               
               <ion-item>
-                <ion-label>Hora</ion-label>
+                <ion-label>{{i.leccion}}</ion-label>
               </ion-item>
 
             </ion-list>
@@ -79,7 +79,7 @@
 
     </ng-template>
 
-  </ion-modal>
+  </ion-modal> -->
 
 
 </ion-content>

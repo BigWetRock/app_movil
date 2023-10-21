@@ -8,21 +8,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <ng-container *ngIf="!loading">
-    <ion-card *ngFor="let m of menuVisualizar">
-      <div>
-        <h2>{{m.nombre}}</h2>
-        <h2>{{m.asignatura}}</h2>
-        <h2>{{m.fecha}}</h2>
-        <h2>{{m.hora}}</h2>
-        <h2>{{m.profesor}}</h2>
-        <h2>{{m.sala}}</h2>
+<ion-card *ngFor="let i of filAsis">
+  <ion-card-content>
+    <h3>{{i.asignatura}}</h3>
+    <h3>{{i.fecha}}</h3>
+    <h3>{{i.hora}}</h3>
+    <h3>{{i.seccion}}</h3>
 
+  </ion-card-content>
 
-      </div>
-    </ion-card>
-  </ng-container>
+</ion-card>
 
 
 </ion-content>

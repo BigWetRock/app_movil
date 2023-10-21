@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HelperService {
 
-  constructor(private alertService:AlertController) { }
+  constructor(private alertService:AlertController,
+              private loadingController:LoadingController,
+              private toastController:ToastController,
+              private modalController:ModalController
+    ) { }
 
   
   async showAlert(msg:string,title:string){
@@ -38,7 +42,37 @@ export class HelperService {
   return promise;
 }
 
+async showLoader(msg:string){
+  var loader = await this.loadingController.create(
+    {
+      cssClass:"loaderClass",
+      message:msg,
+      translucent:true
+    }
+    );
+    await loader.present();
+    return loader;
+  }
 
 
+async showToast(msg:string){
+  var toast = await this.toastController.create({
+    message:msg,
+    duration:2000
+  });
+  await toast.present();
+  return toast;
+  }  
 
+
+  async showModal(componente:any,props:any= {}, hideable = false){
+    var modal = await this.modalController.create(
+      {
+        component:componente,
+        cssClass:"modalClass",
+        componentProps:props,
+        backdropDismiss:hideable
+      });
+      await modal.present();
+  }
 }

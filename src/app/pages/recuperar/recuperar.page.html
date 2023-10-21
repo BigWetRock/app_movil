@@ -20,11 +20,7 @@
         <ion-input [(ngModel)]="recEmail" label="Recuperar Email"  type="Email" labelPlacement="floating" placeholder=""></ion-input>
       </ion-item>
 
-      <ion-item>
-        <ion-input [(ngModel)]="recContrasena" label="Recuperar Contraseña"  type="Password" labelPlacement="floating" placeholder=""></ion-input>
-      </ion-item>
-
-      <ion-button color="primary" size="full" (click)="onRecuperar()" shape="round">Recuperar Email/Contraseña</ion-button>
+      <ion-button color="primary" size="full" (click)="resetPassword()" shape="round">Recuperar Contraseña</ion-button>
       
 
     </ion-card-content>

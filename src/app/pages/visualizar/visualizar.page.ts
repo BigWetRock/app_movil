@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AnimationController } from '@ionic/angular';
-import { Visualizar } from 'src/app/models/visualizar';
 import { HelperService } from 'src/app/services/helper.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-visualizar',
@@ -11,42 +12,31 @@ import { HelperService } from 'src/app/services/helper.service';
 })
 export class VisualizarPage implements OnInit {
 
-  menuVisualizar: Visualizar [] = [];
+  
   loading:boolean = true;
+  asistencia:any;
+  filAsis:any;
 
   constructor(
     private router:Router,
     private animationCtrl:AnimationController,
-    private helper:HelperService,) { }
+    private helper:HelperService,
+    private storage:StorageService,
+    private auth:AngularFireAuth
+      ) { }
 
   ngOnInit() {
-    this.cargarVisualizar();
+    this.cargarAsistencias();
     setTimeout(() => {this.loading = false;}, 2000);
 
   }
 
+  async cargarAsistencias(){
+    this.asistencia = await this.storage.obtenerAsistencias();
+    var emailUserToken = await this.auth.currentUser;
+    this.filAsis = this.asistencia.filter((e: { asistencia: string; }) => e.asistencia == emailUserToken?.email);
+  }
 
-  cargarVisualizar(){
-    this.menuVisualizar.push(
-      {
-        id:1,
-        nombre:'Programacion de Aplicaciones',
-        asignatura:'PGY4121',
-        fecha:'06-09-2023',
-        hora:'10:00',
-        profesor:'Guillermo Villacura',
-        sala:'Sala 1',
-    },
-    {
-      id:2,
-      nombre:'Programacion de Aplicaciones',
-      asignatura:'PGY4121',
-      fecha:'09-09-2023',
-      hora:'10:00',
-      profesor:'Guillermo Villacura',
-      sala:'Sala 2',
 
-    }
-    )
 }
-}
+

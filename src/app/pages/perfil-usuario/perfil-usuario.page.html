@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>perfilUsuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngFor="let i of usuarioFiltro">
+    <div class="container saludo">
+      <ion-card>
+        <h3>Nombre: {{i.nombre}}</h3>
+        <h3>Correo: {{i.correo}}</h3>
+        <h3>Celular: {{i.telefono}}</h3>
+        <h3>Region: {{i.regionSel}}</h3>
+        <h3>Comuna: {{i.comunaSel}}</h3>
+      </ion-card>
+    </div>
+  </ion-card>
+</ion-content>

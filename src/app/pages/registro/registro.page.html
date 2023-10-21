@@ -25,8 +25,29 @@
             <ion-input label="Confirmar Contraseña"  type="password" labelPlacement="floating" placeholder=""></ion-input>
           </ion-item>
           <ion-item>
-            <ion-input label="Numero celular"  type="tel" labelPlacement="floating" placeholder=""></ion-input>
+            <ion-input label="Numero celular" [(ngModel)]="number" type="tel" labelPlacement="floating" placeholder=""></ion-input>
           </ion-item>
+          <ion-item>
+            <ion-input label="Name" [(ngModel)]="name" type="name" labelPlacement="floating" placeholder=""></ion-input>
+          </ion-item>
+
+
+          <ion-list>
+            <ion-item>
+              <ion-select (ionChange)="cargarComuna()" placeholder="Seleccione region" [(ngModel)]="regionSel">
+                <ion-select-option *ngFor="let i of regiones" [value]="i.id">{{i.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+      
+      
+          <ion-list>
+            <ion-item>
+              <ion-select [disabled]="disabledComuna" placeholder="Seleccione comuna" [(ngModel)]="comunaSel">
+                <ion-select-option *ngFor="let i of comunas" [value]="i.id">{{i.nombre}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
         
         </ion-card-content>
         <ion-button (click)="registro()" size="full" color="primary">
