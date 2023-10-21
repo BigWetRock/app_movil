@@ -6,6 +6,7 @@ import { HelperService } from '../services/helper.service';
 import type { Animation } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { StorageService } from '../services/storage.service';
+import { ScreenOrientation } from '@capacitor/screen-orientation';
 
 @Component({
   selector: 'app-home',
@@ -38,6 +39,8 @@ export class HomePage implements OnInit {
     this.cargarMenu();
     this.cargarUsuario();
     this.correo = this.activatedRoute.snapshot.params['email'];
+    console.log(ScreenOrientation.orientation())
+    this.cualquierCosa();
     setTimeout(() => {this.loading = false;}, 0); // 2000
   }
 
@@ -45,6 +48,22 @@ export class HomePage implements OnInit {
     this.router.navigateByUrl("perfil-usuario");
 
   }
+
+  async cualquierCosa(){
+    await ScreenOrientation.orientation().then((e:any) => {
+      console.log(e);
+      if(e.type == "landscape-primary"){
+        this.helper.showToast("Estas en modo horizontal",5000);
+      
+      }
+      else{
+        this.helper.showToast("Estas en modo vertical",5000);
+      }
+    });
+  }
+
+  
+
 
   async cargarUsuario(){
     this.usuario = await this.storage.obtenerUsuario();

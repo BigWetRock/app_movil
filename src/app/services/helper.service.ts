@@ -55,10 +55,10 @@ async showLoader(msg:string){
   }
 
 
-async showToast(msg:string){
+async showToast(msg:string,duro:number=2000){
   var toast = await this.toastController.create({
     message:msg,
-    duration:2000
+    duration:duro
   });
   await toast.present();
   return toast;
