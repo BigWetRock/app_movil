@@ -33,8 +33,10 @@ export class VisualizarPage implements OnInit {
 
   async cargarAsistencias(){
     this.asistencia = await this.storage.obtenerAsistencias();
+    console.log(this.asistencia);
     var emailUserToken = await this.auth.currentUser;
-    this.filAsis = this.asistencia.filter((e: { asistencia: string; }) => e.asistencia == emailUserToken?.email);
+    console.log(emailUserToken?.email);
+    this.filAsis = this.asistencia.filter((e:any) => e.correo == emailUserToken?.email);
   }
 
 

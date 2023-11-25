@@ -7,5 +7,7 @@ export const environment = {
     authDomain: 'pgy4121-001d-joh.firebaseapp.com',
     messagingSenderId: '328477846024',
   },
+  apiUrl:"https://dev.matiivilla.cl/duoc/location/",
   production: true
+  
 };

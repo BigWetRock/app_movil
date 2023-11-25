@@ -40,7 +40,9 @@ export class ConfirmarQrPage implements OnInit {
       seccion:this.i.seccion
 
     }];
+    console.log(asistencia);
     this.storage.guardarAsistencia(asistencia);
+    this.close();
   }
 
 

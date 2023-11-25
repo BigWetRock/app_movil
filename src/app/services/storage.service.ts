@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Preferences } from '@capacitor/preferences';
 import { asistencia } from '../models/asistencia';
+import { HelperService } from 'src/app/services/helper.service';
 
 
 
@@ -16,7 +17,7 @@ export class StorageService {
 
   public correoUsuario:string = "";
 
-  constructor(private authFire:AngularFireAuth) { }
+  constructor(private authFire:AngularFireAuth,private helper:HelperService) { }
 
   async getItem(llave:string):Promise<string | null>{
     const obj = await Preferences.get({key:llave});
@@ -78,8 +79,14 @@ export class StorageService {
 
     async guardarAsistencia(asistencia:asistencia[]){
       var asistencias = await this.obtenerAsistencias();
-  
-      for (const a of asistencias) {
+      for(let a of asistencias){ 
+        if( a.idAsistencia == asistencia[0].idAsistencia){
+          this.helper.showAlert("Ya se ha registrado esta asistencia","Error");
+          return;
+        }
+        
+      }
+      for (let a of asistencias) {
         if(a){
           asistencia.push(a);
         }

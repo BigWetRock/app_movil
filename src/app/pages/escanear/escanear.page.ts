@@ -56,6 +56,17 @@ export class EscanearPage implements OnInit {
       async resultado(){
 
         var qr = [];
+        try {
+          let valorJSON = JSON.parse(this.resultadoQr);
+          if( !valorJSON.asignatura || !valorJSON.seccion || !valorJSON.docente || !valorJSON.sala || !valorJSON.fecha || !valorJSON.hora || !valorJSON.leccion){
+            throw new Error("Qr no valido");
+          }
+        } catch (error) {
+
+          await this.helper.showAlert("Qr no valido. ","Error");
+          return;
+        }
+        
         qr.push(this.resultadoQr);
         const parametros = {asistencia:this.resultadoQr};
         await this.helper.showModal(ConfirmarQrPage,parametros);

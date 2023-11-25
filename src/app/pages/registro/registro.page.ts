@@ -64,7 +64,16 @@ export class RegistroPage implements OnInit {
       await this.helper.showAlert("Debe ingresar un correo","Error");
       return;
     }
-    
+    if(this.regionSel==0){
+      await loader.dismiss(); 
+      await this.helper.showAlert("Debe seleccionar una región","Error");
+      return;
+    }
+    if(this.comunaSel==0){
+      await loader.dismiss(); 
+      await this.helper.showAlert("Debe seleccionar una comuna","Error");
+      return;
+    }
     this.comunaSelNombre = this.comunas.filter(e => e.id == this.comunaSel)[0].nombre;
     this.regionSelNombre = this.regiones.filter(e => e.id == this.regionSel)[0].nombre;
     var user = 
