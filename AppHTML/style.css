@@ -1,0 +1,28 @@
+.background {
+    background-color:  lightblue;
+}
+
+.title {
+    border-radius: 5px;
+    padding: 10px;
+    font: arial;
+    display: inline-block;
+    background-color: lightgrey;
+
+}
+
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.column {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    min-height: 1px;
+}
+.center {
+    text-align: center;
+}
